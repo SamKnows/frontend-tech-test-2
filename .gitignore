@@ -1,0 +1,14 @@
+# Build directory
+build/
+
+# Dependency directory
+node_modules/
+
+# Logs
+*.log
+
+# Prod directory
+dist/
+
+# Coverage
+coverage/
