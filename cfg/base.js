@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 const port = 3000;
 const srcPath = path.join(__dirname, '/../src');
 
@@ -22,7 +22,8 @@ module.exports = {
     extensions: [
       '',
       '.js',
-      '.jsx'
+      '.jsx',
+      '.css'
     ],
     alias: {
       actions: srcPath + '/actions',
@@ -31,7 +32,8 @@ module.exports = {
       components: srcPath + '/components',
       containers: srcPath + '/containers',
       utils: srcPath + '/utils',
-      config: srcPath + '/config/' + process.env.REACT_WEBPACK_ENV
+      config: srcPath + '/config/' + process.env.REACT_WEBPACK_ENV,
+      'choice_css': path.join(__dirname, '/../node_modules/choices.js/assets/styles/css/choices.css'),
     }
   },
   module: {
@@ -42,7 +44,11 @@ module.exports = {
         include: srcPath,
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.(ico|png|jpg|gif|woff|woff2|eot|ttf|svg|xml)$/,
         loader: 'url-loader?limit=8192'
       },
       {
@@ -52,5 +58,5 @@ module.exports = {
   },
   postcss: function () {
     return [];
-  }
+  },
 };

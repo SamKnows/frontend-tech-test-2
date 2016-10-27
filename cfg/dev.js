@@ -1,10 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const _ = require('lodash');
+import path from 'path';
+import webpack from 'webpack';
+import {merge} from 'lodash';
 
 const baseConfig = require('./base');
 
-var config = _.merge({
+var config = merge({
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:3000',
     'webpack/hot/only-dev-server',
@@ -14,7 +14,7 @@ var config = _.merge({
   devtool: 'eval',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
   ]
 }, baseConfig);
 

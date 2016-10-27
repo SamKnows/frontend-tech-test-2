@@ -1,4 +1,4 @@
-var path = require('path');
+import path from 'path';
 var srcPath = path.join(__dirname, '/../src/');
 
 module.exports = {

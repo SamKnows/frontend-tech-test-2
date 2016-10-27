@@ -1,6 +1,6 @@
 import { logoutUser } from '../actions';
-import {camelizeKeys} from 'humps';
-import {set} from 'lodash';
+import { camelizeKeys } from 'humps';
+import { set } from 'lodash';
 import 'isomorphic-fetch';
 
 // const API_ROOT = `${window.APP_CONFIG.API_PROTOCOL}://${window.APP_CONFIG.API_HOST}:${window.APP_CONFIG.API_PORT}/${window.APP_CONFIG.API_CONTEXT}/${window.APP_CONFIG.API_VERSION}/`;
@@ -9,7 +9,9 @@ import 'isomorphic-fetch';
 function callApi(endpoint, options = {}) {
 
 //  const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
-  let fullUrl = 'http://localhost:3001/' + endpoint;
+  // let fullUrl = 'http://localhost:3001/' + endpoint;
+  //TODO Use a node in backend later
+  let fullUrl = 'https://api.fixer.io/' + endpoint;
 
   return fetch(fullUrl, options)
     .then((response) =>
@@ -19,8 +21,8 @@ function callApi(endpoint, options = {}) {
         return Promise.reject({ json, response });
       }
 
-      const camelizedJson = camelizeKeys(json);
-      return Object.assign({}, camelizedJson);
+      // const camelizedJson = camelizeKeys(json);
+      return {...json};
 
     });
 }
@@ -80,7 +82,7 @@ export default (store) => (next) => (action) => {
       next(actionWith({
         endpoint,
         type: failureType,
-        error: json.message || 'Something bad happened'
+        error: json.message || 'Something bad happened',
       }));
     }
   );
