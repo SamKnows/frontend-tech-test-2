@@ -2,6 +2,11 @@ import React, {Component, PropTypes} from 'react';
 import Choices from 'choices.js';
 import 'choice_css';
 
+const styles = {
+  div: {
+    marginBottom: '10px',
+  },
+}
 class CurrencySelector extends Component {
   constructor(props) {
     super(props);
@@ -24,9 +29,10 @@ class CurrencySelector extends Component {
   }
 
   render() {
-    const { actions, classSelector, idSelector } = this.props;
+    const { actions, classSelector, idSelector, label } = this.props;
     return (
-      <div>
+      <div style={styles.div}>
+        <label htmlFor={idSelector}>{label}</label>
         <select id={idSelector} className={classSelector}></select>
       </div>
     );

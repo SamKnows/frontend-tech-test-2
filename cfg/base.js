@@ -1,5 +1,5 @@
 import path from 'path';
-const port = 3000;
+const port = 3001;
 const srcPath = path.join(__dirname, '/../src');
 
 module.exports = {
