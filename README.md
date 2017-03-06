@@ -29,7 +29,7 @@ you're not familiar with that, you're welcome to use something else as long as
 it is a modern and popular framework (i.e. react, angular2, ...).
 
 For the select boxes, please use this library: https://github.com/jshjohnson/Choices
- 
+
 For the currencies, use this API: http://api.fixer.io/latest?base=GBP
 
 Display currencies using the browser locale.
@@ -52,8 +52,23 @@ flatten({ hello: 1, world: [2, 3, { foo: [[4]]}] }); // [1, 2, 3, 4]
 Non-object values like strings and numbers should just be passed through.
 
 It's an okay function, but it could be a lot cleaner, and a lot shorter: this
-function is written using only ES3, and because we don't support old versions 
+function is written using only ES3, and because we don't support old versions
 of Internet Explorer and we use Babel, we can use ES5 and ES2016.
 
 The task is to improve the function. This is entirely subjective and there's
 basically nothing you can do wrong - just curious!
+
+
+# Updates to Currency Converter App
+## Jarryd Crawford
+
+Here&rsquo;s some things I would have done given a greater time limit:
+
+- Manage application state separately with Redux.
+- Use wrapper functions for API calls to reduce duplication and boilerplate for checking API requests (network errors, etc).
+- Create container and stateless components instead of mixing in local component state.
+- Split out the PriceForm component as it's doing too much.
+- Write better CSS — use SCSS and import files for each component e.g. `PriceDisplay.css`, `PriceSelector.css`.
+- Use Choice library for `<select>` elements. Had to avoid as it modifies the DOM outside of React and didn't want to waste time dealing with `findDOMNode` and JSX `ref`s.
+- Eject and clean up `create-react-app` files.
+- Fix bug with the currency locale updating on field change, rather than on form submit. Could add more local state to hold it but it was getting messy.
