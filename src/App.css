@@ -1,0 +1,94 @@
+.App {
+    margin: 0 auto;
+    width: 960px;
+}
+
+h1 {
+    padding: 15px;
+    background: #ddd;
+    text-align: center;
+}
+
+.price-conversion,
+.price-table {
+    padding: 0 15px;
+    float: left;
+    width: 50%;
+}
+
+.price-table {
+    border-left: 1px solid #000;
+    column-count: 2;
+    column-gap: 30px;
+}
+
+.price-table ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.price-table li {
+    display: block;
+    padding: 5px 0;
+}
+
+.price-table span {
+    display: block;
+    float: left;
+}
+
+.price-table .code {
+    font-weight: bold;
+    width: 30%;
+}
+
+.price-table .value {
+    width: 70%;
+    text-align: right;
+}
+
+.price-display {
+    margin: 1em 0 0;
+    padding-left: 50%;
+    width: 100%;
+    font-size: 16px;
+}
+
+.converted-price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+form > div {
+    overflow: hidden;
+    padding: 5px 0;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 0;
+}
+
+label,
+label + div {
+    float: left;
+    width: 50%;
+}
+
+select,
+input {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+}
+
+button {
+    display: block;
+    margin: 1em 0 0 50%;
+    padding: 5px;
+    border: 1px solid #000;
+    background: #ddd;
+    cursor: pointer;
+}

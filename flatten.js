@@ -1,43 +1,32 @@
 function flatten(obj) {
-	if (obj.length) {
-		var flatArray = [];
+  const reduceConcat = (prev, curr) =>
+    prev.concat(
+      Array.isArray(curr) || typeof curr === 'object'
+      ? flatten(curr)
+      : curr
+    )
 
-		if (obj.length === 1) {
-			return obj[0];
-		}
-
-		for (var i = 0; i < obj.length; i++) {
-			var flatItem = flatten(obj[i]);
-
-			if (flatItem.length) {
-				for (var j = 0; j < flatItem.length; j++) {
-					flatArray.push(flatItem[j]);
-				}
-			} else {
-				flatArray.push(flatItem);
-			}
-		}
-
-		return flatArray;
-	}
+  if (Array.isArray(obj)) {
+    return obj.reduce(reduceConcat, [])
+  }
 
 	if (typeof obj === 'object') {
-		var asArray = [];
+    const asArray = []
 
-		for (var key in obj) {
-			var flatItem = flatten(obj[key]);
+    for (let key in obj) {
+      const flatItem = flatten(obj[key])
 
-			if (flatItem.length) {
-				for (var j = 0; j < flatItem.length; j++) {
-					asArray.push(flatItem[j]);
-				}
-			} else {
-				asArray.push(flatItem);
-			}
-		}
+      if (Array.isArray(flatItem)) {
+        flatItem.forEach((el, i) => {
+          asArray.push(flatItem[i])
+        })
+      } else {
+        asArray.push(flatItem)
+      }
+    }
 
-		return asArray;
+    return asArray
 	}
 
-	return obj;
+	return obj
 }
