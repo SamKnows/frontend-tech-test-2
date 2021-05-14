@@ -18,7 +18,7 @@ Please fork this repo before starting so you can work there.
 
 The task is to create a currency conversion app using Vue or React that looks
 like the `currency-converter.png` image.
-It's preferred that you write your own CSS/SCSS.
+Please write your own CSS/SCSS rather than using a framework.
 
 If you'd like to improve on the design, please go ahead but no
 worries if you can't — this is the front-end test, not the design test!
@@ -51,6 +51,8 @@ Non-object values like strings and numbers should just be passed through.
 It's an okay function, but it could be a lot cleaner, and a lot shorter: this
 function is written using only ES3, and because we don't support old versions
 of Internet Explorer and we use Babel, you can use ES5 and ES2016 if you want.
+
+*Note*: Please do not use `Array.prototype.flat()` introduced in ES2019, the goal is to see you're way of doing it.
 
 ##### We're looking for:
 - It should work. Other than that, there isn't really a wrong answer. Just curious
