@@ -52,7 +52,7 @@ It's an okay function, but it could be a lot cleaner, and a lot shorter: this
 function is written using only ES3, and because we don't support old versions
 of Internet Explorer and we use Babel, you can use ES5 and ES2016 if you want.
 
-*Note*: Please do not use `Array.prototype.flat()` introduced in ES2019, the goal is to see you're way of doing it.
+*Note*: Please do not use `Array.prototype.flat()` introduced in ES2019, the goal is to see your way of doing it.
 
 ##### We're looking for:
 - It should work. Other than that, there isn't really a wrong answer. Just curious
