@@ -23,7 +23,8 @@ Please write your own CSS/SCSS rather than using a framework.
 If you'd like to improve on the design, please go ahead but no
 worries if you can't — this is the front-end test, not the design test!
 
-For getting the conversion rates, please use this API: https://exchangeratesapi.io
+For getting the conversion rates, you can use this API endpoint: https://api.exchangerate.host/latest. Doc is available here: https://exchangerate.host/#/#docs,
+If you have a problem using the API, feel free to use another one to get exchange rates.
 
 ##### User stores:
 - When the base currency is changed, the application should fetch new conversion rates
